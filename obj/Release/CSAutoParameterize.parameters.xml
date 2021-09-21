@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ReadMeterConnectionString-Web.config Connection String" description="ReadMeterConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-F21J623;Initial Catalog=ReadMeter;User ID=readmeter;Password=123456" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\project\\viwater_vn\\ServiceWebHook\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ReadMeterConnectionString']/@connectionString" />
+  </parameter>
+</parameters>
