@@ -391,6 +391,8 @@
   <ItemGroup>
     <Compile Include="Action\AddNewUserFollowAction.cs" />
     <Compile Include="Action\CheckExistUserFollowerAction.cs" />
+    <Compile Include="Action\CheckFollowerFollowAction.cs" />
+    <Compile Include="Action\CreateDataPostAction.cs" />
     <Compile Include="Action\UpdateUserFollowerAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\WebHookController.cs" />
@@ -402,6 +404,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\AttachmentModel.cs" />
+    <Compile Include="Model\DefaultActionModel.cs" />
+    <Compile Include="Model\ElementModel.cs" />
+    <Compile Include="Model\MessageModel.cs" />
+    <Compile Include="Model\NotificationModel.cs" />
+    <Compile Include="Model\PayloadModel.cs" />
+    <Compile Include="Model\RecipientModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

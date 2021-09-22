@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
@@ -50,7 +51,6 @@ namespace ServiceWebHook.Controllers
                         addNewUserFollowAction.AddNewUserFollow(follower_id);
                     }
 
-                    File.WriteAllText(WebConfigurationManager.AppSettings["path"], follower_id);
                 }
                 else if(zaloEvent == "unfollow")
                 {
@@ -60,6 +60,41 @@ namespace ServiceWebHook.Controllers
                     string follower_id = jsonResult["follower"]["id"].ToString();
 
                     updateUserFollowerAction.UpdateUserFollower(follower_id, false);
+                }
+                else if(zaloEvent == "user_send_text")
+                {
+                    string sender_id = jsonResult["sender"]["id"].ToString();
+
+                    CheckFollowerFollowAction checkFollowerFollowAction = new CheckFollowerFollowAction();
+
+                    if (checkFollowerFollowAction.CheckFollowerFollow(sender_id) == true)
+                    {
+                        string text = jsonResult["message"]["text"].ToString();
+
+                        if(text == "#dangky")
+                        {
+                            CreateDataPostAction createDataPostAction = new CreateDataPostAction();
+
+
+                           
+                            string jsonString = createDataPostAction.CreateDataPost(sender_id);
+
+                            HttpClient client = new HttpClient();
+
+                            string url = WebConfigurationManager.AppSettings["url_zl"];
+
+
+                            client.DefaultRequestHeaders.Add("access_token", WebConfigurationManager.AppSettings["access_token"]);
+
+                            var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+                            var result = client.PostAsync(url, content).Result;
+
+                            File.WriteAllText(WebConfigurationManager.AppSettings["path"], result.ToString());
+
+                        }
+                    }
+                    
                 }
 
                 return jsonResult.ToString();

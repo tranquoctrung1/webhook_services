@@ -265,3 +265,4 @@ D:\project\viwater_vn\ServiceWebHook\bin\vi\Humanizer.resources.dll
 D:\project\viwater_vn\ServiceWebHook\bin\zh-CN\Humanizer.resources.dll
 D:\project\viwater_vn\ServiceWebHook\bin\zh-Hans\Humanizer.resources.dll
 D:\project\viwater_vn\ServiceWebHook\bin\zh-Hant\Humanizer.resources.dll
+D:\project\viwater_vn\ServiceWebHook\obj\Debug\ServiceWebHook.csproj.AssemblyReference.cache
