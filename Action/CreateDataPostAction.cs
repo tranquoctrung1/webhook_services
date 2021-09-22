@@ -28,7 +28,7 @@ namespace ServiceWebHook.Action
 
             el.title = "Liên Kết Thông Tin Khách Hàng Với Bavitech Thông Qua Zalo";
             el.subtitle = "Để nhận được thông tin và sử dụng dịch vụ của Bavitech, vui lòng chọn vào đây để liên kết thông tin khách hàng";
-            el.image_url = "https://viwater.vn/_imgs/_logo_bavitech.png";
+            el.image_url = "https://stc-developers.zdn.vn/images/bg_1.jpg";
             el.default_action = new DefaultActionModel();
             el.default_action.type = "oa.open.url";
             el.default_action.url = $"{WebConfigurationManager.AppSettings["url_web"]}?uid={id}" ;
