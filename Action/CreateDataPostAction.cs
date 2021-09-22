@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace ServiceWebHook.Action
 {
@@ -30,7 +31,7 @@ namespace ServiceWebHook.Action
             el.image_url = "https://stc-developers.zdn.vn/images/bg_1.jpg";
             el.default_action = new DefaultActionModel();
             el.default_action.type = "oa.open.url";
-            el.default_action.url = "http://112.78.4.162:3001/login/" + id;
+            el.default_action.url = $"{WebConfigurationManager.AppSettings["url_web"]}?uid={id}" ;
 
             ElementModel el2 = new ElementModel();
 
@@ -38,7 +39,7 @@ namespace ServiceWebHook.Action
             el2.image_url = "https://stc-developers.zdn.vn/images/bg_1.jpg";
             el2.default_action = new DefaultActionModel();
             el2.default_action.type = "oa.open.url";
-            el2.default_action.url = "http://112.78.4.162:3001/login/" + id;
+            el2.default_action.url = $"{WebConfigurationManager.AppSettings["url_web"]}?uid={id}";
 
             list.Add(el);
             list.Add(el2);

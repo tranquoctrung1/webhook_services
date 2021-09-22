@@ -6,4 +6,22 @@
       <Column Name="IsFollower" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.t_Consumers" Member="t_Consumers">
+    <Type Name="t_Consumer">
+      <Column Name="ConsumerId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zoom" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SetDefault" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Acronym" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Career" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DMA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ZaloId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

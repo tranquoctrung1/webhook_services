@@ -33,6 +33,9 @@ namespace ServiceWebHook
     partial void InsertZl_User_Follow(Zl_User_Follow instance);
     partial void UpdateZl_User_Follow(Zl_User_Follow instance);
     partial void DeleteZl_User_Follow(Zl_User_Follow instance);
+    partial void Insertt_Consumer(t_Consumer instance);
+    partial void Updatet_Consumer(t_Consumer instance);
+    partial void Deletet_Consumer(t_Consumer instance);
     #endregion
 		
 		public ModelDataContext() : 
@@ -70,6 +73,14 @@ namespace ServiceWebHook
 			get
 			{
 				return this.GetTable<Zl_User_Follow>();
+			}
+		}
+		
+		public System.Data.Linq.Table<t_Consumer> t_Consumers
+		{
+			get
+			{
+				return this.GetTable<t_Consumer>();
 			}
 		}
 	}
@@ -135,6 +146,380 @@ namespace ServiceWebHook
 					this._IsFollower = value;
 					this.SendPropertyChanged("IsFollower");
 					this.OnIsFollowerChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.t_Consumers")]
+	public partial class t_Consumer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ConsumerId;
+		
+		private System.Nullable<byte> _Zoom;
+		
+		private string _Description;
+		
+		private System.Nullable<int> _SetDefault;
+		
+		private string _Acronym;
+		
+		private string _Address;
+		
+		private string _Email;
+		
+		private string _Fax;
+		
+		private string _Phone;
+		
+		private string _Contact;
+		
+		private string _Career;
+		
+		private string _DMA;
+		
+		private long _Id;
+		
+		private string _ZaloId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnConsumerIdChanging(string value);
+    partial void OnConsumerIdChanged();
+    partial void OnZoomChanging(System.Nullable<byte> value);
+    partial void OnZoomChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnSetDefaultChanging(System.Nullable<int> value);
+    partial void OnSetDefaultChanged();
+    partial void OnAcronymChanging(string value);
+    partial void OnAcronymChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnFaxChanging(string value);
+    partial void OnFaxChanged();
+    partial void OnPhoneChanging(string value);
+    partial void OnPhoneChanged();
+    partial void OnContactChanging(string value);
+    partial void OnContactChanged();
+    partial void OnCareerChanging(string value);
+    partial void OnCareerChanged();
+    partial void OnDMAChanging(string value);
+    partial void OnDMAChanged();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnZaloIdChanging(string value);
+    partial void OnZaloIdChanged();
+    #endregion
+		
+		public t_Consumer()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConsumerId", DbType="VarChar(50)")]
+		public string ConsumerId
+		{
+			get
+			{
+				return this._ConsumerId;
+			}
+			set
+			{
+				if ((this._ConsumerId != value))
+				{
+					this.OnConsumerIdChanging(value);
+					this.SendPropertyChanging();
+					this._ConsumerId = value;
+					this.SendPropertyChanged("ConsumerId");
+					this.OnConsumerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Zoom", DbType="TinyInt")]
+		public System.Nullable<byte> Zoom
+		{
+			get
+			{
+				return this._Zoom;
+			}
+			set
+			{
+				if ((this._Zoom != value))
+				{
+					this.OnZoomChanging(value);
+					this.SendPropertyChanging();
+					this._Zoom = value;
+					this.SendPropertyChanged("Zoom");
+					this.OnZoomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(4000)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SetDefault", DbType="Int")]
+		public System.Nullable<int> SetDefault
+		{
+			get
+			{
+				return this._SetDefault;
+			}
+			set
+			{
+				if ((this._SetDefault != value))
+				{
+					this.OnSetDefaultChanging(value);
+					this.SendPropertyChanging();
+					this._SetDefault = value;
+					this.SendPropertyChanged("SetDefault");
+					this.OnSetDefaultChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Acronym", DbType="NVarChar(50)")]
+		public string Acronym
+		{
+			get
+			{
+				return this._Acronym;
+			}
+			set
+			{
+				if ((this._Acronym != value))
+				{
+					this.OnAcronymChanging(value);
+					this.SendPropertyChanging();
+					this._Acronym = value;
+					this.SendPropertyChanged("Acronym");
+					this.OnAcronymChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(500)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="NChar(20)")]
+		public string Fax
+		{
+			get
+			{
+				return this._Fax;
+			}
+			set
+			{
+				if ((this._Fax != value))
+				{
+					this.OnFaxChanging(value);
+					this.SendPropertyChanging();
+					this._Fax = value;
+					this.SendPropertyChanged("Fax");
+					this.OnFaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NChar(20)")]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this.OnPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._Phone = value;
+					this.SendPropertyChanged("Phone");
+					this.OnPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contact", DbType="NVarChar(250)")]
+		public string Contact
+		{
+			get
+			{
+				return this._Contact;
+			}
+			set
+			{
+				if ((this._Contact != value))
+				{
+					this.OnContactChanging(value);
+					this.SendPropertyChanging();
+					this._Contact = value;
+					this.SendPropertyChanged("Contact");
+					this.OnContactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Career", DbType="NVarChar(250)")]
+		public string Career
+		{
+			get
+			{
+				return this._Career;
+			}
+			set
+			{
+				if ((this._Career != value))
+				{
+					this.OnCareerChanging(value);
+					this.SendPropertyChanging();
+					this._Career = value;
+					this.SendPropertyChanged("Career");
+					this.OnCareerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DMA", DbType="NVarChar(50)")]
+		public string DMA
+		{
+			get
+			{
+				return this._DMA;
+			}
+			set
+			{
+				if ((this._DMA != value))
+				{
+					this.OnDMAChanging(value);
+					this.SendPropertyChanging();
+					this._DMA = value;
+					this.SendPropertyChanged("DMA");
+					this.OnDMAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZaloId", DbType="NVarChar(100)")]
+		public string ZaloId
+		{
+			get
+			{
+				return this._ZaloId;
+			}
+			set
+			{
+				if ((this._ZaloId != value))
+				{
+					this.OnZaloIdChanging(value);
+					this.SendPropertyChanging();
+					this._ZaloId = value;
+					this.SendPropertyChanged("ZaloId");
+					this.OnZaloIdChanged();
 				}
 			}
 		}

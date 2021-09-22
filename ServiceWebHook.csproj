@@ -392,9 +392,12 @@
     <Compile Include="Action\AddNewUserFollowAction.cs" />
     <Compile Include="Action\CheckExistUserFollowerAction.cs" />
     <Compile Include="Action\CheckFollowerFollowAction.cs" />
+    <Compile Include="Action\CheckUserIDExistsAction.cs" />
     <Compile Include="Action\CreateDataPostAction.cs" />
     <Compile Include="Action\UpdateUserFollowerAction.cs" />
+    <Compile Include="Action\UpdateUserIdAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\UpdateUserController.cs" />
     <Compile Include="Controllers\WebHookController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -426,6 +429,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UpdateUser\" />
     <Folder Include="Views\WebHook\" />
   </ItemGroup>
   <ItemGroup>
