@@ -74,8 +74,6 @@ namespace ServiceWebHook.Controllers
                         if(text == "#dangky")
                         {
                             CreateDataPostAction createDataPostAction = new CreateDataPostAction();
-
-
                            
                             string jsonString = createDataPostAction.CreateDataPost(sender_id);
 
@@ -90,8 +88,48 @@ namespace ServiceWebHook.Controllers
 
                             var result = client.PostAsync(url, content).Result;
 
-                            File.WriteAllText(WebConfigurationManager.AppSettings["path"], result.ToString());
+                            //File.WriteAllText(WebConfigurationManager.AppSettings["path"], result.ToString());
 
+                        }
+                        else if(text == "#ghichiso")
+                        {
+
+                            CheckUserRegisterAction checkUserRegisterAction = new CheckUserRegisterAction();
+
+                            if(checkUserRegisterAction.CheckUserRegister(sender_id) == false)
+                            {
+                                CreateDataPostAction createDataPostAction = new CreateDataPostAction();
+
+                                string jsonString = createDataPostAction.CreateDataPost(sender_id);
+
+                                HttpClient client = new HttpClient();
+
+                                string url = WebConfigurationManager.AppSettings["url_zl"];
+
+
+                                client.DefaultRequestHeaders.Add("access_token", WebConfigurationManager.AppSettings["access_token"]);
+
+                                var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+                                var result = client.PostAsync(url, content).Result;
+                            }
+                            else
+                            {
+                                CreateDataPostWriteIndexMeterAction createDataPostWriteIndexMeterAction = new CreateDataPostWriteIndexMeterAction();
+                                string jsonString = createDataPostWriteIndexMeterAction.CreateDataPostWriteIndexMeter(sender_id);
+
+                                HttpClient client = new HttpClient();
+
+                                string url = WebConfigurationManager.AppSettings["url_zl"];
+
+                                client.DefaultRequestHeaders.Add("access_token", WebConfigurationManager.AppSettings["access_token"]);
+
+
+                                var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+                                var result = client.PostAsync(url, content).Result;
+                            }
+                           
                         }
                     }
                     

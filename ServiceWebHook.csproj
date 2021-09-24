@@ -393,12 +393,21 @@
     <Compile Include="Action\CheckExistUserFollowerAction.cs" />
     <Compile Include="Action\CheckFollowerFollowAction.cs" />
     <Compile Include="Action\CheckUserIDExistsAction.cs" />
+    <Compile Include="Action\CheckUserRegisterAction.cs" />
     <Compile Include="Action\CreateDataPostAction.cs" />
+    <Compile Include="Action\CreateDataPostWriteIndexMeterAction.cs" />
+    <Compile Include="Action\GetListCustomerAction.cs" />
+    <Compile Include="Action\LoadInforMeterAction.cs" />
     <Compile Include="Action\UpdateUserFollowerAction.cs" />
     <Compile Include="Action\UpdateUserIdAction.cs" />
+    <Compile Include="Action\WriteMeterAction.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GetListCustomerController.cs" />
+    <Compile Include="Controllers\LoadInforMeterController.cs" />
     <Compile Include="Controllers\UpdateUserController.cs" />
+    <Compile Include="Controllers\UploadImageController.cs" />
     <Compile Include="Controllers\WebHookController.cs" />
+    <Compile Include="Controllers\WriteMeterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -410,6 +419,7 @@
     <Compile Include="Model\AttachmentModel.cs" />
     <Compile Include="Model\DefaultActionModel.cs" />
     <Compile Include="Model\ElementModel.cs" />
+    <Compile Include="Model\InforMeterModel.cs" />
     <Compile Include="Model\MessageModel.cs" />
     <Compile Include="Model\NotificationModel.cs" />
     <Compile Include="Model\PayloadModel.cs" />
@@ -429,8 +439,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="upload\" />
+    <Folder Include="Views\GetListCustomer\" />
+    <Folder Include="Views\LoadInforMeter\" />
     <Folder Include="Views\UpdateUser\" />
+    <Folder Include="Views\UploadImage\" />
     <Folder Include="Views\WebHook\" />
+    <Folder Include="Views\WriteMeter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model.dbml">

@@ -24,4 +24,84 @@
       <Column Name="ZaloId" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_ClockRecord" Member="tbl_ClockRecords">
+    <Type Name="tbl_ClockRecord">
+      <Column Name="ClockRecordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContractID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RouteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Period" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FirstNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LastNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FirstDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="LastDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UsageNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ArrearsQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StatusCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModifyUser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RecordTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InputTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="User_Input" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastNumber_Mobile" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StatusCode_Mobile" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LastFirstStatusCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastFirstUsageNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LastSecondStatusCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastSecondUsageNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LastThirdStatusCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastThirdUsageNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AvgUseNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Lon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Lat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StatusLockBook" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ImageSource" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ImageName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LockedStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BookId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_ClockRecord_History" Member="tbl_ClockRecord_Histories">
+    <Type Name="tbl_ClockRecord_History">
+      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Period" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ContractID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RouteID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LastNumber" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RecordTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InputTime" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="User_Input" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Lat" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_Contract" Member="tbl_Contracts">
+    <Type Name="tbl_Contract">
+      <Column Name="ContractID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContractCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContractType" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="RegisterID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ValidDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ContractStatus" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ApplyDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ClockCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ClockTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastClockCheck" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CreateUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModifyUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ZoneCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Lon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Lat" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Disable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

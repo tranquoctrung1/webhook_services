@@ -36,6 +36,15 @@ namespace ServiceWebHook
     partial void Insertt_Consumer(t_Consumer instance);
     partial void Updatet_Consumer(t_Consumer instance);
     partial void Deletet_Consumer(t_Consumer instance);
+    partial void Inserttbl_ClockRecord(tbl_ClockRecord instance);
+    partial void Updatetbl_ClockRecord(tbl_ClockRecord instance);
+    partial void Deletetbl_ClockRecord(tbl_ClockRecord instance);
+    partial void Inserttbl_ClockRecord_History(tbl_ClockRecord_History instance);
+    partial void Updatetbl_ClockRecord_History(tbl_ClockRecord_History instance);
+    partial void Deletetbl_ClockRecord_History(tbl_ClockRecord_History instance);
+    partial void Inserttbl_Contract(tbl_Contract instance);
+    partial void Updatetbl_Contract(tbl_Contract instance);
+    partial void Deletetbl_Contract(tbl_Contract instance);
     #endregion
 		
 		public ModelDataContext() : 
@@ -81,6 +90,30 @@ namespace ServiceWebHook
 			get
 			{
 				return this.GetTable<t_Consumer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_ClockRecord> tbl_ClockRecords
+		{
+			get
+			{
+				return this.GetTable<tbl_ClockRecord>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_ClockRecord_History> tbl_ClockRecord_Histories
+		{
+			get
+			{
+				return this.GetTable<tbl_ClockRecord_History>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Contract> tbl_Contracts
+		{
+			get
+			{
+				return this.GetTable<tbl_Contract>();
 			}
 		}
 	}
@@ -520,6 +553,1752 @@ namespace ServiceWebHook
 					this._ZaloId = value;
 					this.SendPropertyChanged("ZaloId");
 					this.OnZaloIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_ClockRecord")]
+	public partial class tbl_ClockRecord : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ClockRecordID;
+		
+		private long _ContractID;
+		
+		private int _RouteID;
+		
+		private System.DateTime _Period;
+		
+		private System.Nullable<long> _FirstNumber;
+		
+		private System.Nullable<long> _LastNumber;
+		
+		private System.Nullable<System.DateTime> _FirstDate;
+		
+		private System.Nullable<System.DateTime> _LastDate;
+		
+		private System.Nullable<long> _UsageNumber;
+		
+		private System.Nullable<double> _ArrearsQuantity;
+		
+		private string _StatusCode;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _ModifyDate;
+		
+		private string _ModifyUser;
+		
+		private System.Nullable<System.DateTime> _RecordTime;
+		
+		private System.Nullable<int> _InputTime;
+		
+		private string _Notes;
+		
+		private string _User_Input;
+		
+		private System.Nullable<long> _LastNumber_Mobile;
+		
+		private string _StatusCode_Mobile;
+		
+		private string _LastFirstStatusCode;
+		
+		private System.Nullable<long> _LastFirstUsageNumber;
+		
+		private string _LastSecondStatusCode;
+		
+		private System.Nullable<long> _LastSecondUsageNumber;
+		
+		private string _LastThirdStatusCode;
+		
+		private System.Nullable<long> _LastThirdUsageNumber;
+		
+		private System.Nullable<long> _AvgUseNumber;
+		
+		private System.Nullable<double> _Lon;
+		
+		private System.Nullable<double> _Lat;
+		
+		private System.Nullable<short> _StatusLockBook;
+		
+		private string _ImageSource;
+		
+		private string _ImageName;
+		
+		private System.Nullable<bool> _LockedStatus;
+		
+		private System.Nullable<int> _BookId;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnClockRecordIDChanging(int value);
+    partial void OnClockRecordIDChanged();
+    partial void OnContractIDChanging(long value);
+    partial void OnContractIDChanged();
+    partial void OnRouteIDChanging(int value);
+    partial void OnRouteIDChanged();
+    partial void OnPeriodChanging(System.DateTime value);
+    partial void OnPeriodChanged();
+    partial void OnFirstNumberChanging(System.Nullable<long> value);
+    partial void OnFirstNumberChanged();
+    partial void OnLastNumberChanging(System.Nullable<long> value);
+    partial void OnLastNumberChanged();
+    partial void OnFirstDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnFirstDateChanged();
+    partial void OnLastDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastDateChanged();
+    partial void OnUsageNumberChanging(System.Nullable<long> value);
+    partial void OnUsageNumberChanged();
+    partial void OnArrearsQuantityChanging(System.Nullable<double> value);
+    partial void OnArrearsQuantityChanged();
+    partial void OnStatusCodeChanging(string value);
+    partial void OnStatusCodeChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnModifyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifyDateChanged();
+    partial void OnModifyUserChanging(string value);
+    partial void OnModifyUserChanged();
+    partial void OnRecordTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnRecordTimeChanged();
+    partial void OnInputTimeChanging(System.Nullable<int> value);
+    partial void OnInputTimeChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnUser_InputChanging(string value);
+    partial void OnUser_InputChanged();
+    partial void OnLastNumber_MobileChanging(System.Nullable<long> value);
+    partial void OnLastNumber_MobileChanged();
+    partial void OnStatusCode_MobileChanging(string value);
+    partial void OnStatusCode_MobileChanged();
+    partial void OnLastFirstStatusCodeChanging(string value);
+    partial void OnLastFirstStatusCodeChanged();
+    partial void OnLastFirstUsageNumberChanging(System.Nullable<long> value);
+    partial void OnLastFirstUsageNumberChanged();
+    partial void OnLastSecondStatusCodeChanging(string value);
+    partial void OnLastSecondStatusCodeChanged();
+    partial void OnLastSecondUsageNumberChanging(System.Nullable<long> value);
+    partial void OnLastSecondUsageNumberChanged();
+    partial void OnLastThirdStatusCodeChanging(string value);
+    partial void OnLastThirdStatusCodeChanged();
+    partial void OnLastThirdUsageNumberChanging(System.Nullable<long> value);
+    partial void OnLastThirdUsageNumberChanged();
+    partial void OnAvgUseNumberChanging(System.Nullable<long> value);
+    partial void OnAvgUseNumberChanged();
+    partial void OnLonChanging(System.Nullable<double> value);
+    partial void OnLonChanged();
+    partial void OnLatChanging(System.Nullable<double> value);
+    partial void OnLatChanged();
+    partial void OnStatusLockBookChanging(System.Nullable<short> value);
+    partial void OnStatusLockBookChanged();
+    partial void OnImageSourceChanging(string value);
+    partial void OnImageSourceChanged();
+    partial void OnImageNameChanging(string value);
+    partial void OnImageNameChanged();
+    partial void OnLockedStatusChanging(System.Nullable<bool> value);
+    partial void OnLockedStatusChanged();
+    partial void OnBookIdChanging(System.Nullable<int> value);
+    partial void OnBookIdChanged();
+    #endregion
+		
+		public tbl_ClockRecord()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClockRecordID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ClockRecordID
+		{
+			get
+			{
+				return this._ClockRecordID;
+			}
+			set
+			{
+				if ((this._ClockRecordID != value))
+				{
+					this.OnClockRecordIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClockRecordID = value;
+					this.SendPropertyChanged("ClockRecordID");
+					this.OnClockRecordIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractID", DbType="BigInt NOT NULL")]
+		public long ContractID
+		{
+			get
+			{
+				return this._ContractID;
+			}
+			set
+			{
+				if ((this._ContractID != value))
+				{
+					this.OnContractIDChanging(value);
+					this.SendPropertyChanging();
+					this._ContractID = value;
+					this.SendPropertyChanged("ContractID");
+					this.OnContractIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RouteID", DbType="Int NOT NULL")]
+		public int RouteID
+		{
+			get
+			{
+				return this._RouteID;
+			}
+			set
+			{
+				if ((this._RouteID != value))
+				{
+					this.OnRouteIDChanging(value);
+					this.SendPropertyChanging();
+					this._RouteID = value;
+					this.SendPropertyChanged("RouteID");
+					this.OnRouteIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Period", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime Period
+		{
+			get
+			{
+				return this._Period;
+			}
+			set
+			{
+				if ((this._Period != value))
+				{
+					this.OnPeriodChanging(value);
+					this.SendPropertyChanging();
+					this._Period = value;
+					this.SendPropertyChanged("Period");
+					this.OnPeriodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstNumber", DbType="BigInt")]
+		public System.Nullable<long> FirstNumber
+		{
+			get
+			{
+				return this._FirstNumber;
+			}
+			set
+			{
+				if ((this._FirstNumber != value))
+				{
+					this.OnFirstNumberChanging(value);
+					this.SendPropertyChanging();
+					this._FirstNumber = value;
+					this.SendPropertyChanged("FirstNumber");
+					this.OnFirstNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastNumber", DbType="BigInt")]
+		public System.Nullable<long> LastNumber
+		{
+			get
+			{
+				return this._LastNumber;
+			}
+			set
+			{
+				if ((this._LastNumber != value))
+				{
+					this.OnLastNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LastNumber = value;
+					this.SendPropertyChanged("LastNumber");
+					this.OnLastNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> FirstDate
+		{
+			get
+			{
+				return this._FirstDate;
+			}
+			set
+			{
+				if ((this._FirstDate != value))
+				{
+					this.OnFirstDateChanging(value);
+					this.SendPropertyChanging();
+					this._FirstDate = value;
+					this.SendPropertyChanged("FirstDate");
+					this.OnFirstDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> LastDate
+		{
+			get
+			{
+				return this._LastDate;
+			}
+			set
+			{
+				if ((this._LastDate != value))
+				{
+					this.OnLastDateChanging(value);
+					this.SendPropertyChanging();
+					this._LastDate = value;
+					this.SendPropertyChanged("LastDate");
+					this.OnLastDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsageNumber", DbType="BigInt")]
+		public System.Nullable<long> UsageNumber
+		{
+			get
+			{
+				return this._UsageNumber;
+			}
+			set
+			{
+				if ((this._UsageNumber != value))
+				{
+					this.OnUsageNumberChanging(value);
+					this.SendPropertyChanging();
+					this._UsageNumber = value;
+					this.SendPropertyChanged("UsageNumber");
+					this.OnUsageNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrearsQuantity", DbType="Float")]
+		public System.Nullable<double> ArrearsQuantity
+		{
+			get
+			{
+				return this._ArrearsQuantity;
+			}
+			set
+			{
+				if ((this._ArrearsQuantity != value))
+				{
+					this.OnArrearsQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._ArrearsQuantity = value;
+					this.SendPropertyChanged("ArrearsQuantity");
+					this.OnArrearsQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="VarChar(10)")]
+		public string StatusCode
+		{
+			get
+			{
+				return this._StatusCode;
+			}
+			set
+			{
+				if ((this._StatusCode != value))
+				{
+					this.OnStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._StatusCode = value;
+					this.SendPropertyChanged("StatusCode");
+					this.OnStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(20)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> ModifyDate
+		{
+			get
+			{
+				return this._ModifyDate;
+			}
+			set
+			{
+				if ((this._ModifyDate != value))
+				{
+					this.OnModifyDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyDate = value;
+					this.SendPropertyChanged("ModifyDate");
+					this.OnModifyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyUser", DbType="VarChar(50)")]
+		public string ModifyUser
+		{
+			get
+			{
+				return this._ModifyUser;
+			}
+			set
+			{
+				if ((this._ModifyUser != value))
+				{
+					this.OnModifyUserChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyUser = value;
+					this.SendPropertyChanged("ModifyUser");
+					this.OnModifyUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RecordTime
+		{
+			get
+			{
+				return this._RecordTime;
+			}
+			set
+			{
+				if ((this._RecordTime != value))
+				{
+					this.OnRecordTimeChanging(value);
+					this.SendPropertyChanging();
+					this._RecordTime = value;
+					this.SendPropertyChanged("RecordTime");
+					this.OnRecordTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InputTime", DbType="Int")]
+		public System.Nullable<int> InputTime
+		{
+			get
+			{
+				return this._InputTime;
+			}
+			set
+			{
+				if ((this._InputTime != value))
+				{
+					this.OnInputTimeChanging(value);
+					this.SendPropertyChanging();
+					this._InputTime = value;
+					this.SendPropertyChanged("InputTime");
+					this.OnInputTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(255)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Input", DbType="VarChar(50)")]
+		public string User_Input
+		{
+			get
+			{
+				return this._User_Input;
+			}
+			set
+			{
+				if ((this._User_Input != value))
+				{
+					this.OnUser_InputChanging(value);
+					this.SendPropertyChanging();
+					this._User_Input = value;
+					this.SendPropertyChanged("User_Input");
+					this.OnUser_InputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastNumber_Mobile", DbType="BigInt")]
+		public System.Nullable<long> LastNumber_Mobile
+		{
+			get
+			{
+				return this._LastNumber_Mobile;
+			}
+			set
+			{
+				if ((this._LastNumber_Mobile != value))
+				{
+					this.OnLastNumber_MobileChanging(value);
+					this.SendPropertyChanging();
+					this._LastNumber_Mobile = value;
+					this.SendPropertyChanged("LastNumber_Mobile");
+					this.OnLastNumber_MobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode_Mobile", DbType="VarChar(10)")]
+		public string StatusCode_Mobile
+		{
+			get
+			{
+				return this._StatusCode_Mobile;
+			}
+			set
+			{
+				if ((this._StatusCode_Mobile != value))
+				{
+					this.OnStatusCode_MobileChanging(value);
+					this.SendPropertyChanging();
+					this._StatusCode_Mobile = value;
+					this.SendPropertyChanged("StatusCode_Mobile");
+					this.OnStatusCode_MobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastFirstStatusCode", DbType="NVarChar(50)")]
+		public string LastFirstStatusCode
+		{
+			get
+			{
+				return this._LastFirstStatusCode;
+			}
+			set
+			{
+				if ((this._LastFirstStatusCode != value))
+				{
+					this.OnLastFirstStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._LastFirstStatusCode = value;
+					this.SendPropertyChanged("LastFirstStatusCode");
+					this.OnLastFirstStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastFirstUsageNumber", DbType="BigInt")]
+		public System.Nullable<long> LastFirstUsageNumber
+		{
+			get
+			{
+				return this._LastFirstUsageNumber;
+			}
+			set
+			{
+				if ((this._LastFirstUsageNumber != value))
+				{
+					this.OnLastFirstUsageNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LastFirstUsageNumber = value;
+					this.SendPropertyChanged("LastFirstUsageNumber");
+					this.OnLastFirstUsageNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastSecondStatusCode", DbType="NVarChar(50)")]
+		public string LastSecondStatusCode
+		{
+			get
+			{
+				return this._LastSecondStatusCode;
+			}
+			set
+			{
+				if ((this._LastSecondStatusCode != value))
+				{
+					this.OnLastSecondStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._LastSecondStatusCode = value;
+					this.SendPropertyChanged("LastSecondStatusCode");
+					this.OnLastSecondStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastSecondUsageNumber", DbType="BigInt")]
+		public System.Nullable<long> LastSecondUsageNumber
+		{
+			get
+			{
+				return this._LastSecondUsageNumber;
+			}
+			set
+			{
+				if ((this._LastSecondUsageNumber != value))
+				{
+					this.OnLastSecondUsageNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LastSecondUsageNumber = value;
+					this.SendPropertyChanged("LastSecondUsageNumber");
+					this.OnLastSecondUsageNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastThirdStatusCode", DbType="NVarChar(50)")]
+		public string LastThirdStatusCode
+		{
+			get
+			{
+				return this._LastThirdStatusCode;
+			}
+			set
+			{
+				if ((this._LastThirdStatusCode != value))
+				{
+					this.OnLastThirdStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._LastThirdStatusCode = value;
+					this.SendPropertyChanged("LastThirdStatusCode");
+					this.OnLastThirdStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastThirdUsageNumber", DbType="BigInt")]
+		public System.Nullable<long> LastThirdUsageNumber
+		{
+			get
+			{
+				return this._LastThirdUsageNumber;
+			}
+			set
+			{
+				if ((this._LastThirdUsageNumber != value))
+				{
+					this.OnLastThirdUsageNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LastThirdUsageNumber = value;
+					this.SendPropertyChanged("LastThirdUsageNumber");
+					this.OnLastThirdUsageNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AvgUseNumber", DbType="BigInt")]
+		public System.Nullable<long> AvgUseNumber
+		{
+			get
+			{
+				return this._AvgUseNumber;
+			}
+			set
+			{
+				if ((this._AvgUseNumber != value))
+				{
+					this.OnAvgUseNumberChanging(value);
+					this.SendPropertyChanging();
+					this._AvgUseNumber = value;
+					this.SendPropertyChanged("AvgUseNumber");
+					this.OnAvgUseNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lon", DbType="Float")]
+		public System.Nullable<double> Lon
+		{
+			get
+			{
+				return this._Lon;
+			}
+			set
+			{
+				if ((this._Lon != value))
+				{
+					this.OnLonChanging(value);
+					this.SendPropertyChanging();
+					this._Lon = value;
+					this.SendPropertyChanged("Lon");
+					this.OnLonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lat", DbType="Float")]
+		public System.Nullable<double> Lat
+		{
+			get
+			{
+				return this._Lat;
+			}
+			set
+			{
+				if ((this._Lat != value))
+				{
+					this.OnLatChanging(value);
+					this.SendPropertyChanging();
+					this._Lat = value;
+					this.SendPropertyChanged("Lat");
+					this.OnLatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusLockBook", DbType="SmallInt")]
+		public System.Nullable<short> StatusLockBook
+		{
+			get
+			{
+				return this._StatusLockBook;
+			}
+			set
+			{
+				if ((this._StatusLockBook != value))
+				{
+					this.OnStatusLockBookChanging(value);
+					this.SendPropertyChanging();
+					this._StatusLockBook = value;
+					this.SendPropertyChanged("StatusLockBook");
+					this.OnStatusLockBookChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageSource", DbType="VarChar(255)")]
+		public string ImageSource
+		{
+			get
+			{
+				return this._ImageSource;
+			}
+			set
+			{
+				if ((this._ImageSource != value))
+				{
+					this.OnImageSourceChanging(value);
+					this.SendPropertyChanging();
+					this._ImageSource = value;
+					this.SendPropertyChanged("ImageSource");
+					this.OnImageSourceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageName", DbType="VarChar(100)")]
+		public string ImageName
+		{
+			get
+			{
+				return this._ImageName;
+			}
+			set
+			{
+				if ((this._ImageName != value))
+				{
+					this.OnImageNameChanging(value);
+					this.SendPropertyChanging();
+					this._ImageName = value;
+					this.SendPropertyChanged("ImageName");
+					this.OnImageNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LockedStatus", DbType="Bit")]
+		public System.Nullable<bool> LockedStatus
+		{
+			get
+			{
+				return this._LockedStatus;
+			}
+			set
+			{
+				if ((this._LockedStatus != value))
+				{
+					this.OnLockedStatusChanging(value);
+					this.SendPropertyChanging();
+					this._LockedStatus = value;
+					this.SendPropertyChanged("LockedStatus");
+					this.OnLockedStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookId", DbType="Int")]
+		public System.Nullable<int> BookId
+		{
+			get
+			{
+				return this._BookId;
+			}
+			set
+			{
+				if ((this._BookId != value))
+				{
+					this.OnBookIdChanging(value);
+					this.SendPropertyChanging();
+					this._BookId = value;
+					this.SendPropertyChanged("BookId");
+					this.OnBookIdChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_ClockRecord_History")]
+	public partial class tbl_ClockRecord_History : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _ID;
+		
+		private System.Nullable<System.DateTime> _Period;
+		
+		private System.Nullable<long> _ContractID;
+		
+		private System.Nullable<int> _RouteID;
+		
+		private string _StatusCode;
+		
+		private System.Nullable<long> _LastNumber;
+		
+		private System.Nullable<System.DateTime> _RecordTime;
+		
+		private System.Nullable<int> _InputTime;
+		
+		private string _Notes;
+		
+		private string _User_Input;
+		
+		private System.Nullable<double> _Lon;
+		
+		private System.Nullable<double> _Lat;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(decimal value);
+    partial void OnIDChanged();
+    partial void OnPeriodChanging(System.Nullable<System.DateTime> value);
+    partial void OnPeriodChanged();
+    partial void OnContractIDChanging(System.Nullable<long> value);
+    partial void OnContractIDChanged();
+    partial void OnRouteIDChanging(System.Nullable<int> value);
+    partial void OnRouteIDChanged();
+    partial void OnStatusCodeChanging(string value);
+    partial void OnStatusCodeChanged();
+    partial void OnLastNumberChanging(System.Nullable<long> value);
+    partial void OnLastNumberChanged();
+    partial void OnRecordTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnRecordTimeChanged();
+    partial void OnInputTimeChanging(System.Nullable<int> value);
+    partial void OnInputTimeChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnUser_InputChanging(string value);
+    partial void OnUser_InputChanged();
+    partial void OnLonChanging(System.Nullable<double> value);
+    partial void OnLonChanged();
+    partial void OnLatChanging(System.Nullable<double> value);
+    partial void OnLatChanged();
+    #endregion
+		
+		public tbl_ClockRecord_History()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Period", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> Period
+		{
+			get
+			{
+				return this._Period;
+			}
+			set
+			{
+				if ((this._Period != value))
+				{
+					this.OnPeriodChanging(value);
+					this.SendPropertyChanging();
+					this._Period = value;
+					this.SendPropertyChanged("Period");
+					this.OnPeriodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractID", DbType="BigInt")]
+		public System.Nullable<long> ContractID
+		{
+			get
+			{
+				return this._ContractID;
+			}
+			set
+			{
+				if ((this._ContractID != value))
+				{
+					this.OnContractIDChanging(value);
+					this.SendPropertyChanging();
+					this._ContractID = value;
+					this.SendPropertyChanged("ContractID");
+					this.OnContractIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RouteID", DbType="Int")]
+		public System.Nullable<int> RouteID
+		{
+			get
+			{
+				return this._RouteID;
+			}
+			set
+			{
+				if ((this._RouteID != value))
+				{
+					this.OnRouteIDChanging(value);
+					this.SendPropertyChanging();
+					this._RouteID = value;
+					this.SendPropertyChanged("RouteID");
+					this.OnRouteIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="VarChar(10)")]
+		public string StatusCode
+		{
+			get
+			{
+				return this._StatusCode;
+			}
+			set
+			{
+				if ((this._StatusCode != value))
+				{
+					this.OnStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._StatusCode = value;
+					this.SendPropertyChanged("StatusCode");
+					this.OnStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastNumber", DbType="BigInt")]
+		public System.Nullable<long> LastNumber
+		{
+			get
+			{
+				return this._LastNumber;
+			}
+			set
+			{
+				if ((this._LastNumber != value))
+				{
+					this.OnLastNumberChanging(value);
+					this.SendPropertyChanging();
+					this._LastNumber = value;
+					this.SendPropertyChanged("LastNumber");
+					this.OnLastNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RecordTime
+		{
+			get
+			{
+				return this._RecordTime;
+			}
+			set
+			{
+				if ((this._RecordTime != value))
+				{
+					this.OnRecordTimeChanging(value);
+					this.SendPropertyChanging();
+					this._RecordTime = value;
+					this.SendPropertyChanged("RecordTime");
+					this.OnRecordTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InputTime", DbType="Int")]
+		public System.Nullable<int> InputTime
+		{
+			get
+			{
+				return this._InputTime;
+			}
+			set
+			{
+				if ((this._InputTime != value))
+				{
+					this.OnInputTimeChanging(value);
+					this.SendPropertyChanging();
+					this._InputTime = value;
+					this.SendPropertyChanged("InputTime");
+					this.OnInputTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(500)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Input", DbType="VarChar(50)")]
+		public string User_Input
+		{
+			get
+			{
+				return this._User_Input;
+			}
+			set
+			{
+				if ((this._User_Input != value))
+				{
+					this.OnUser_InputChanging(value);
+					this.SendPropertyChanging();
+					this._User_Input = value;
+					this.SendPropertyChanged("User_Input");
+					this.OnUser_InputChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lon", DbType="Float")]
+		public System.Nullable<double> Lon
+		{
+			get
+			{
+				return this._Lon;
+			}
+			set
+			{
+				if ((this._Lon != value))
+				{
+					this.OnLonChanging(value);
+					this.SendPropertyChanging();
+					this._Lon = value;
+					this.SendPropertyChanged("Lon");
+					this.OnLonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lat", DbType="Float")]
+		public System.Nullable<double> Lat
+		{
+			get
+			{
+				return this._Lat;
+			}
+			set
+			{
+				if ((this._Lat != value))
+				{
+					this.OnLatChanging(value);
+					this.SendPropertyChanging();
+					this._Lat = value;
+					this.SendPropertyChanged("Lat");
+					this.OnLatChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Contract")]
+	public partial class tbl_Contract : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ContractID;
+		
+		private string _ContractCode;
+		
+		private short _ContractType;
+		
+		private long _RegisterID;
+		
+		private long _CustomerID;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private System.Nullable<System.DateTime> _ValidDate;
+		
+		private string _ContractStatus;
+		
+		private System.Nullable<System.DateTime> _ApplyDate;
+		
+		private string _ClockCode;
+		
+		private System.Nullable<int> _ClockTypeID;
+		
+		private System.Nullable<System.DateTime> _LastClockCheck;
+		
+		private string _Notes;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private string _CreateUser;
+		
+		private System.Nullable<System.DateTime> _ModifyDate;
+		
+		private string _ModifyUser;
+		
+		private string _ZoneCode;
+		
+		private System.Nullable<double> _Lon;
+		
+		private System.Nullable<double> _Lat;
+		
+		private int _Disable;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnContractIDChanging(long value);
+    partial void OnContractIDChanged();
+    partial void OnContractCodeChanging(string value);
+    partial void OnContractCodeChanged();
+    partial void OnContractTypeChanging(short value);
+    partial void OnContractTypeChanged();
+    partial void OnRegisterIDChanging(long value);
+    partial void OnRegisterIDChanged();
+    partial void OnCustomerIDChanging(long value);
+    partial void OnCustomerIDChanged();
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateChanged();
+    partial void OnValidDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnValidDateChanged();
+    partial void OnContractStatusChanging(string value);
+    partial void OnContractStatusChanged();
+    partial void OnApplyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnApplyDateChanged();
+    partial void OnClockCodeChanging(string value);
+    partial void OnClockCodeChanged();
+    partial void OnClockTypeIDChanging(System.Nullable<int> value);
+    partial void OnClockTypeIDChanged();
+    partial void OnLastClockCheckChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastClockCheckChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    partial void OnCreateUserChanging(string value);
+    partial void OnCreateUserChanged();
+    partial void OnModifyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifyDateChanged();
+    partial void OnModifyUserChanging(string value);
+    partial void OnModifyUserChanged();
+    partial void OnZoneCodeChanging(string value);
+    partial void OnZoneCodeChanged();
+    partial void OnLonChanging(System.Nullable<double> value);
+    partial void OnLonChanged();
+    partial void OnLatChanging(System.Nullable<double> value);
+    partial void OnLatChanged();
+    partial void OnDisableChanging(int value);
+    partial void OnDisableChanged();
+    #endregion
+		
+		public tbl_Contract()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ContractID
+		{
+			get
+			{
+				return this._ContractID;
+			}
+			set
+			{
+				if ((this._ContractID != value))
+				{
+					this.OnContractIDChanging(value);
+					this.SendPropertyChanging();
+					this._ContractID = value;
+					this.SendPropertyChanged("ContractID");
+					this.OnContractIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractCode", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ContractCode
+		{
+			get
+			{
+				return this._ContractCode;
+			}
+			set
+			{
+				if ((this._ContractCode != value))
+				{
+					this.OnContractCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ContractCode = value;
+					this.SendPropertyChanged("ContractCode");
+					this.OnContractCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractType", DbType="SmallInt NOT NULL")]
+		public short ContractType
+		{
+			get
+			{
+				return this._ContractType;
+			}
+			set
+			{
+				if ((this._ContractType != value))
+				{
+					this.OnContractTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ContractType = value;
+					this.SendPropertyChanged("ContractType");
+					this.OnContractTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisterID", DbType="BigInt NOT NULL")]
+		public long RegisterID
+		{
+			get
+			{
+				return this._RegisterID;
+			}
+			set
+			{
+				if ((this._RegisterID != value))
+				{
+					this.OnRegisterIDChanging(value);
+					this.SendPropertyChanging();
+					this._RegisterID = value;
+					this.SendPropertyChanged("RegisterID");
+					this.OnRegisterIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="BigInt NOT NULL")]
+		public long CustomerID
+		{
+			get
+			{
+				return this._CustomerID;
+			}
+			set
+			{
+				if ((this._CustomerID != value))
+				{
+					this.OnCustomerIDChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerID = value;
+					this.SendPropertyChanged("CustomerID");
+					this.OnCustomerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this.OnEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndDate = value;
+					this.SendPropertyChanged("EndDate");
+					this.OnEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> ValidDate
+		{
+			get
+			{
+				return this._ValidDate;
+			}
+			set
+			{
+				if ((this._ValidDate != value))
+				{
+					this.OnValidDateChanging(value);
+					this.SendPropertyChanging();
+					this._ValidDate = value;
+					this.SendPropertyChanged("ValidDate");
+					this.OnValidDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractStatus", DbType="VarChar(10)")]
+		public string ContractStatus
+		{
+			get
+			{
+				return this._ContractStatus;
+			}
+			set
+			{
+				if ((this._ContractStatus != value))
+				{
+					this.OnContractStatusChanging(value);
+					this.SendPropertyChanging();
+					this._ContractStatus = value;
+					this.SendPropertyChanged("ContractStatus");
+					this.OnContractStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplyDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> ApplyDate
+		{
+			get
+			{
+				return this._ApplyDate;
+			}
+			set
+			{
+				if ((this._ApplyDate != value))
+				{
+					this.OnApplyDateChanging(value);
+					this.SendPropertyChanging();
+					this._ApplyDate = value;
+					this.SendPropertyChanged("ApplyDate");
+					this.OnApplyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClockCode", DbType="VarChar(20)")]
+		public string ClockCode
+		{
+			get
+			{
+				return this._ClockCode;
+			}
+			set
+			{
+				if ((this._ClockCode != value))
+				{
+					this.OnClockCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ClockCode = value;
+					this.SendPropertyChanged("ClockCode");
+					this.OnClockCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClockTypeID", DbType="Int")]
+		public System.Nullable<int> ClockTypeID
+		{
+			get
+			{
+				return this._ClockTypeID;
+			}
+			set
+			{
+				if ((this._ClockTypeID != value))
+				{
+					this.OnClockTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._ClockTypeID = value;
+					this.SendPropertyChanged("ClockTypeID");
+					this.OnClockTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastClockCheck", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> LastClockCheck
+		{
+			get
+			{
+				return this._LastClockCheck;
+			}
+			set
+			{
+				if ((this._LastClockCheck != value))
+				{
+					this.OnLastClockCheckChanging(value);
+					this.SendPropertyChanging();
+					this._LastClockCheck = value;
+					this.SendPropertyChanged("LastClockCheck");
+					this.OnLastClockCheckChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="NVarChar(250)")]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateUser", DbType="VarChar(20)")]
+		public string CreateUser
+		{
+			get
+			{
+				return this._CreateUser;
+			}
+			set
+			{
+				if ((this._CreateUser != value))
+				{
+					this.OnCreateUserChanging(value);
+					this.SendPropertyChanging();
+					this._CreateUser = value;
+					this.SendPropertyChanged("CreateUser");
+					this.OnCreateUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyDate", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> ModifyDate
+		{
+			get
+			{
+				return this._ModifyDate;
+			}
+			set
+			{
+				if ((this._ModifyDate != value))
+				{
+					this.OnModifyDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyDate = value;
+					this.SendPropertyChanged("ModifyDate");
+					this.OnModifyDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyUser", DbType="VarChar(20)")]
+		public string ModifyUser
+		{
+			get
+			{
+				return this._ModifyUser;
+			}
+			set
+			{
+				if ((this._ModifyUser != value))
+				{
+					this.OnModifyUserChanging(value);
+					this.SendPropertyChanging();
+					this._ModifyUser = value;
+					this.SendPropertyChanged("ModifyUser");
+					this.OnModifyUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZoneCode", DbType="VarChar(50)")]
+		public string ZoneCode
+		{
+			get
+			{
+				return this._ZoneCode;
+			}
+			set
+			{
+				if ((this._ZoneCode != value))
+				{
+					this.OnZoneCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ZoneCode = value;
+					this.SendPropertyChanged("ZoneCode");
+					this.OnZoneCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lon", DbType="Float")]
+		public System.Nullable<double> Lon
+		{
+			get
+			{
+				return this._Lon;
+			}
+			set
+			{
+				if ((this._Lon != value))
+				{
+					this.OnLonChanging(value);
+					this.SendPropertyChanging();
+					this._Lon = value;
+					this.SendPropertyChanged("Lon");
+					this.OnLonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lat", DbType="Float")]
+		public System.Nullable<double> Lat
+		{
+			get
+			{
+				return this._Lat;
+			}
+			set
+			{
+				if ((this._Lat != value))
+				{
+					this.OnLatChanging(value);
+					this.SendPropertyChanging();
+					this._Lat = value;
+					this.SendPropertyChanged("Lat");
+					this.OnLatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disable", DbType="Int NOT NULL")]
+		public int Disable
+		{
+			get
+			{
+				return this._Disable;
+			}
+			set
+			{
+				if ((this._Disable != value))
+				{
+					this.OnDisableChanging(value);
+					this.SendPropertyChanging();
+					this._Disable = value;
+					this.SendPropertyChanged("Disable");
+					this.OnDisableChanged();
 				}
 			}
 		}
